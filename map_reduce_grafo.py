@@ -1,6 +1,6 @@
 def map (k,v):
-    return [ (k,([k,k],[v,k])) ]
-
+    return [ (k,(k,v)) , (v,(k,v))   ]
+    
 def reduce (k, lv ):
     outgoing = []
     incoming = []
@@ -9,13 +9,12 @@ def reduce (k, lv ):
             outgoing.append(v[1])
         elif k == v[1]:
             incoming.append(v[0])
+    print("outgoing: ",outgoing)
+    print("incoming: ",incoming)
     retValue = []
     for o in outgoing:
         for i in incoming:
-            if o != 'A':
                 retValue.append( i+" -2-> "+o )
-            else:
-                retValue.append(o+" -2-> C")
     return retValue
 
 exampleInput = {'A': 'B', 'B': 'C', 'C': 'D', 'D': 'B'}
@@ -28,9 +27,18 @@ for key,value in exampleInput.items():
     resultadosMap.append(map(key,value))
 print("Resultados map:",resultadosMap)
 
+# Fase de Agrupar y Ordenar
+Dic_MergeSort= {"A":[],"B":[],"C":[],"D":[]}
+for resulmap in resultadosMap:
+    print(resulmap)
+    tupla1=resulmap[0]
+    Dic_MergeSort[tupla1[0]].append(tupla1[1])
+    tupla2=resulmap[1]
+    Dic_MergeSort[tupla2[0]].append(tupla2[1])
+print("Resultados MergeSort:",Dic_MergeSort)
+
 # Fase reducción
 resultadosReuce = []
-for resulmap in resultadosMap:
-    tupla=resulmap[0]
-    resultadosReuce.append(reduce(tupla[0],tupla[1]))
+for key,value in Dic_MergeSort.items():
+    resultadosReuce.append(reduce(key,value))
 print("Resultados reduce:",resultadosReuce)
