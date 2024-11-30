@@ -26,7 +26,8 @@ for key,value in exampleInput.items():
 print("Resultados map:",resultadosMap)
 
 # Fase de Agrupar y Ordenar
-Dic_MergeSort= {"A":[],"B":[],"C":[],"D":[]}
+Dic_MergeSort= {"A":[],"B":[],"C":[],"D":[]} # se obtienen todas las aristas de cada nodo, es decir, todos sus entrantes y salientes
+# ejemplo: 'B': [('A', 'B'), ('B', 'C'), ('D', 'B')] quiere decir que para llegar a B se puede llegar por A y por D y para salir de B va a C
 for resulmap in resultadosMap:
     tupla1=resulmap[0]
     Dic_MergeSort[tupla1[0]].append(tupla1[1])
