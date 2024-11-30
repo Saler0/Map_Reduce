@@ -10,8 +10,6 @@ def reduce (k, lv ):
         elif k == v[1]:
             incoming.append(v[0])
     retValue = []
-    print("outgoing:",outgoing)
-    print("incoming:",incoming)
     for o in outgoing:
         for i in incoming:
             if o != 'A':
@@ -34,7 +32,5 @@ print("Resultados map:",resultadosMap)
 resultadosReuce = []
 for resulmap in resultadosMap:
     tupla=resulmap[0]
-    print("keymap:",tupla[0])
-    print("valuemap:",tupla[1])
     resultadosReuce.append(reduce(tupla[0],tupla[1]))
 print("Resultados reduce:",resultadosReuce)
