@@ -9,8 +9,6 @@ def reduce (k, lv ):
             outgoing.append(v[1])
         elif k == v[1]:
             incoming.append(v[0])
-    print("outgoing: ",outgoing)
-    print("incoming: ",incoming)
     retValue = []
     for o in outgoing:
         for i in incoming:
