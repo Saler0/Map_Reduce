@@ -28,7 +28,6 @@ print("Resultados map:",resultadosMap)
 # Fase de Agrupar y Ordenar
 Dic_MergeSort= {"A":[],"B":[],"C":[],"D":[]}
 for resulmap in resultadosMap:
-    print(resulmap)
     tupla1=resulmap[0]
     Dic_MergeSort[tupla1[0]].append(tupla1[1])
     tupla2=resulmap[1]
